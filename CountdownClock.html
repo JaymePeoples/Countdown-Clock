@@ -29,14 +29,16 @@
 		    
 		  // If the count down is over, write some text 
 		  if (distance < 0) {
-		    document.getElementById("timebox").innerHTML = "Summer's Here!";
+		    document.getElementById("title").innerHTML = "Summer's Here";
+		    document.getElementById("timebox").innerHTML ="";
 		  }
 		}, 1000);
 
 	</script>
 </head>
 <body>
-	<h1>Countdown to Summer!</h1>
+	<div class="bg">
+	<h1 id="title">Countdown to Summer!</h1>
 	<div id="timebox">
 		<section id="daybox" class="timeitem">
 			<p id="days"></p>
@@ -56,6 +58,7 @@
 		</section>
 
 	</div>
+</div>
 
 </body>
 </html>
