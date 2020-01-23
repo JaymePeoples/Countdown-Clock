@@ -3,38 +3,59 @@
 <head>
 	<title>Countdown Clock</title>
 	<link rel="stylesheet" type="text/css" href="countdown.css">
+	<link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+
+	<script defer type="text/javascript">
+		//set time counting to
+		const countDownDate = new Date("June 12, 2020 11:30:00").getTime();
+
+		//Update the countdown every second
+		setInterval(function() {
+			//get today's date and time
+			const now = new Date().getTime();
+				//find distance between now and the count down date
+			const distance = countDownDate - now;
+				//time calculations for days, hours, minutes, seconds
+			const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+		  	const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+		  	const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+		  	const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+		// Output the result in an element with id="demo"
+		  	document.getElementById("days").innerText = days;
+		  	document.getElementById("hours").innerText = hours;
+		  	document.getElementById("minutes").innerText = minutes;
+		  	document.getElementById("seconds").innerText = seconds;
+
+		    
+		  // If the count down is over, write some text 
+		  if (distance < 0) {
+		    document.getElementById("timebox").innerHTML = "Summer's Here!";
+		  }
+		}, 1000);
+
+	</script>
 </head>
 <body>
-<p id="summer"></p>
-<script type="text/javascript">
-	//set time counting to
-	var countDownDate = new Date("Jan 13, 2020 20:32:00").getTime();
+	<h1>Countdown to Summer!</h1>
+	<div id="timebox">
+		<section id="daybox" class="timeitem">
+			<p id="days"></p>
+			<p>Days</p>
+		</section>
+		<section id="hourbox" class="timeitem">
+			<p id="hours"></p>
+			<p>Hours</p>
+		</section>
+		<section id="minbox" class="timeitem">
+			<p id="minutes"></p>
+			<p>Minutes</p>
+		</section>
+		<section id="secondbox" class="timeitem">
+			<p id="seconds"></p>
+			<p>Seconds</p>
+		</section>
 
-	//Update the countdown every second
-	var x = setInterval(function() {
-		//get today's date and time
-	var now = new Date().getTime();
-		//find distance between now and the count down date
-	var distance = countDownDate - now;
-		//time calculations for days, hours, minutes, seconds
-	var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  	var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  	var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  	var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-// Output the result in an element with id="demo"
- 	 document.getElementById("summer").innerHTML = days + "d " + hours + "h "
-  	+ minutes + "m " + seconds + "s ";
-    
-  // If the count down is over, write some text 
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("summer").innerHTML = "Summer's Here!";
-  }
-}, 1000);
-
-</script>
-
-
+	</div>
 
 </body>
 </html>
